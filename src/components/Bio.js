@@ -17,12 +17,7 @@ class Bio extends React.Component {
           textAlign: 'center'
         }}
       >
-        <p>
-          <Gravatar email="jamie.czerwinski@gmail.com" size={100} className="rounded-circle" />
-        </p>
-        <p>
-          Hey! My name is <strong>Jamie Czerwinski</strong>. Welcome to my site!
-        </p>
+      <Gravatar email="jamie.czerwinski@gmail.com" size={100} className="rounded-circle" />
       </div>
     )
   }

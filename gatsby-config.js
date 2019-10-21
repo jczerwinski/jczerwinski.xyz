@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: "jczerwinski.github.io/portfolio",
+    title: "jczerwinski.xyz",
     author: 'Jamie Czerwinski',
     description: "Jamie Czerwinski's personal portfolio.",
-    siteUrl: 'https://jczerwinski.github.io/portfolio',
+    siteUrl: 'https://jczerwinski.xyz',
   },
-  pathPrefix: '/portfolio',
+  pathPrefix: '/',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
