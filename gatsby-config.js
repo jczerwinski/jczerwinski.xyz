@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: "jczerwinski.xyz",
+    title: "www.jczerwinski.xyz",
     author: 'Jamie Czerwinski',
     description: "Jamie Czerwinski's personal portfolio.",
-    siteUrl: 'https://jczerwinski.xyz',
+    siteUrl: 'https://www.jczerwinski.xyz',
   },
   pathPrefix: '/',
   plugins: [
