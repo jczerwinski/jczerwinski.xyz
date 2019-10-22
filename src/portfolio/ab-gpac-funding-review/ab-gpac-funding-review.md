@@ -1,7 +1,6 @@
 ---
 title: ab-GPAC Funding Review
 date: 2017-02-03
-img: ab-gpac-funding-review.png
 link: https://drive.google.com/open?id=1fVK8YHAvmTyJ3RSMY5UIDVNuSlNnmTXW
 tags:
   - advocacy

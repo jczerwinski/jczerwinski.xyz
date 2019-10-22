@@ -8,8 +8,6 @@ import Helmet from 'react-helmet'
 import Bio from '../components/Bio'
 import Layout from '../components/Layout/'
 
-import Img from 'gatsby-image'
-
 import { Badge } from 'reactstrap'
 
 import { rhythm } from '../utils/typography'
@@ -47,9 +45,11 @@ class Portfolio extends React.Component {
                     {i.node.frontmatter.tags.map(t => <Badge pill style={{marginRight: '.3rem', backgroundColor: color(t)}} key={t}>{t}</Badge>)}
                   </div>
                   <div style={{marginBottom: '1.618rem'}} dangerouslySetInnerHTML={{ __html: i.node.html }} />
-                  <div className="image">
-                    <Img fluid={i.node.frontmatter.img.childImageSharp.fluid} />
-                  </div>
+                  {i.node.frontmatter.img && 
+                    <div className="image">
+                      <a style={{zIndex: 9999, display: 'inline-block'}} href={i.node.frontmatter.link}><img style={{maxWidth: '100%'}} src={i.node.frontmatter.img.publicURL} /></a>
+                    </div>
+                  }
                 </div>
               );
             })}
@@ -76,16 +76,13 @@ export const pageQuery = graphql`
           html
           id
           excerpt
+          fileAbsolutePath
           fields {
             slug
           }
           frontmatter {
             img {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+              publicURL
             }
             tags
             date (formatString: "MMMM YYYY")

@@ -1,7 +1,6 @@
 ---
 title: ab-GPAC Tuition Review
 date: 2016-12-15
-img: ab-gpac-tuition-review.png
 link: https://drive.google.com/open?id=1RWIzhwT34XGp-nrpj_W9-dif7HzzQssb
 tags:
   - advocacy
