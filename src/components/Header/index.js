@@ -7,8 +7,8 @@ import { Container, Navbar, Nav, NavItem, NavLink, Collapse, NavbarToggler, Navb
 
 let elements = [
   {
-    name: 'Resume',
-    link: '/resume'
+    name: 'CV',
+    link: '/cv'
   },
   {
     name: 'Portfolio',

@@ -26,7 +26,7 @@ let data = {
     "picture": "",
     "email": "jamie.czerwinski@gmail.com",
     "phone": "+17809087687",
-    "website": "http://jczerwinski.xyz",
+    "website": "http://www.jczerwinski.xyz",
     "summary": "",
     "location": {
       "city": "Edmonton",
@@ -47,7 +47,7 @@ let data = {
       {
         "institution": "TELUS",
         "area": "Consumer Products and Services",
-        "position": "Data Scientist",
+        "position": "Performance Analyst",
         "website": "http://www.telus.com",
         "startDate": "2019-03-01",
         "endDate": "present",
@@ -79,7 +79,7 @@ let data = {
       },{
         "institution": "TELUS",
         "area": "Customer Experience Help Desk",
-        "position": "Reporting and Systems Analyst",
+        "position": "Developer Analyst",
         "website": "http://www.telus.com",
         "startDate": "2014-01-01",
         "endDate": "2017-06-30",
@@ -88,7 +88,7 @@ let data = {
           "Evolved and maintained the Help Desk tracker web application, improving agent productivity and measurement capabilities.",
           "Designed and developed new team performance metrics, including 'search first' compliance and repeat call rates.",
           "Developed and delivered monthly and quarterly team performance and trend reporting.",
-          "Designed, developed, and maintained a real-time product bundle quotation web application, significantly improving the ability of agents to quickly and accurately quote, close, and record bundle offers made to customers."
+          'Designed, developed, and maintained the "Price Calculator" - a real-time product bundle quotation web application, significantly improving the ability of agents to quickly and accurately quote, close, and record bundle offers made to customers.'
         ],
         "skills": ['javascript', 'backbone.js', 'html', 'css', 'sass', 'microsoft iis', 'vb.net', 'microsoft access', 'sql', 'windows server', 'batch', 'apache', 'project management', 'agile', 'jira', 'node.js', 'git', 'piwik analytics', 'remote/distributed teamwork', 'web analytics', 'telecommunications', 'excel', 'microsoft office', 'client service', 'kpi development']
       },{
@@ -123,7 +123,7 @@ let data = {
     {
       "institution": "Athabasca University Graduate Students' Association",
       "startDate": "2016-05-01",
-      "endDate": "2017-04-30",
+      "endDate": "2019-04-30",
       "experiences": [
         {
           "institution": "Athabasca University Graduate Students' Association",
@@ -144,7 +144,7 @@ let data = {
           "website": "http://www.augsa.com",
           "startDate": "2017-05-01",
           "endDate": "2018-04-30",
-          "summary": "Responsible for advocacy and engagement leadership for Athabasca University's graduate students.",
+          "summary": "Led advocacy, engagement, and governance for Athabasca University's graduate students.",
           "highlights": [
             "Increased awareness of graduate student issues on the AU Board of Governors by proactively identifying and measuring graduate student priorities, and presenting the results in a grad student KPI dashboard.",
             "Enhanced student engagement by redesigning our email newsletter, resulting in a 400% increase in content penetration. Leveraged this improvement to drive increased student engagement in key priorities.",
@@ -159,7 +159,7 @@ let data = {
           "website": "http://www.augsa.com",
           "startDate": "2016-05-01",
           "endDate": "2017-04-30",
-          "summary": "Responsible for advocating to the federal and provincial governments on behalf of Athabasca University graduate students.",
+          "summary": "Advocated to the federal and provincial governments on behalf of graduate students.",
           "highlights": [
             "Led AUGSA's delegations to the Canadian Alliance of Students' Associations (CASA) and to the Alberta Graduate Provincial Advocacy Council (ab-GPAC).",
             "As Chair of CASA's Graduate Council, coordinated the development and review of a number of graduate-student focused federal advocacy policies and position papers."
@@ -171,7 +171,7 @@ let data = {
     {
       "institution": "Alberta Graduate Provincial Advocacy Council",
       "startDate": "2016-05-01",
-      "endDate": "2017-04-30",
+      "endDate": "2019-04-30",
       "experiences": [
         {
           "institution": "Alberta Graduate Provincial Advocacy Council (ab-GPAC)",
@@ -293,13 +293,13 @@ function ExperienceGroup (props) {
   const hideDates = experiences.length <= 1;
 
   return <div>
-    <section style={{textAlign: 'left'}}>
-      <header>
+    <section style={{textAlign: 'left', pageBreakInside: 'avoid'}}>
+      <div>
         <DateRange start={startDate} end={endDate} bold />
         <div style={{display: 'inline-block', paddingLeft: '1em', borderLeft: '1px solid black', maxWidth: 505, paddingBottom: 10, fontWeight: 'bold'}}>
           {institution}
         </div>
-      </header>
+      </div>
         {experiences.map(e => <Experience experience={e} hideDates={hideDates} />)}
     </section>
   </div>;
@@ -337,33 +337,29 @@ function Experience (props) {
   } = props.experience;
   const { hideDates } = props;
   return <div>
-    <section>
-      <header>
-        <DateRange start={startDate} end={endDate} hideDates={hideDates} />
-        <div style={{display: 'inline-block', paddingLeft: '1em', borderLeft: '1px solid black', maxWidth: 505, paddingBottom: 10}}>
-          <details>
-            <summary>{position}{area ? ` - ${area}` : ''}</summary>
-            <div style={{marginLeft: 25, marginTop: 10, marginBottom: 15}}>
-              <div style={{marginBottom: '.62em', fontStyle: 'italic'}}>{summary}</div>
-              <Highlights highlights={highlights} />
-              <Skills skills={skills} />
-            </div>
-          </details>
+    <DateRange start={startDate} end={endDate} hideDates={hideDates} />
+    <div style={{display: 'inline-block', paddingLeft: '1em', borderLeft: '1px solid black', maxWidth: 505, paddingBottom: 10}}>
+      <details>
+        <summary>{position}{area ? ` - ${area}` : ''}</summary>
+        <div style={{marginLeft: 25, marginTop: 10, marginBottom: 15}}>
+          <div style={{marginBottom: '.62em', fontStyle: 'italic'}}>{summary}</div>
+          <Highlights highlights={highlights} />
+          <Skills skills={skills} />
         </div>
-      </header>
-    </section>
+      </details>
+    </div>
   </div>;
 }
 
 function Highlights (props) {
   const highlights = props.highlights;
   if (highlights) {
-    return <section>
+    return <div>
       <h6>Highlights</h6>
       <ul>
         {highlights.map(h => <li style={{marginBottom: '0.61em'}}>{h}</li>)}
       </ul>
-    </section>;
+    </div>;
   } else {
     return null;
   }
